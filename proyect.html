@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Mi Página Interactiva</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('img.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+        }
+        #container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        #button {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button#btnno {
+            background-color: #f44336;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button#btnno:hover {
+            background-color: #d32f2f;
+        }
+        img {
+            margin-top: 38px;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>
+            <span>¿QUIERES  SER MI NOVIA?</span>
+        </h1>
+        <div id="button">
+            <button onclick="accionParaCuandoDigaSI()" id="btnsi">¡SI!</button>
+            <button id="btnno" onclick="mueveboton()">NO</button>
+        </div>
+        <img src="ruta_de_la_imagen.jpg" alt="Imagen" width="200">
+    </div>
+
+    <audio autoplay loop>
+        <source src="musica.mp3" type="audio/mpeg">
+        Tu navegador no admite el elemento de audio.
+    </audio>
+
+    
+    <script>
+        function accionParaCuandoDigaSI() {
+            const respuesta = confirm("¿Estás segura de querer hacerlo?");
+            if (respuesta) {
+                window.location.href = "opcionsi.html";
+            } else {
+                alert("ESPERO PUEDAS CONSIDERARLO");
+            }
+        }
+
+        function mueveboton() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            const newWidth = Math.random() * width;
+            const newHeight = Math.random() * height;
+
+            const btnno = document.getElementById("btnno");
+            btnno.style.position = "absolute";
+            btnno.style.left = newWidth + "px";
+            btnno.style.top = newHeight + "px";
+        }
+    </script>
+</body>
+</html>
